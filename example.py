@@ -10,7 +10,7 @@ api = SP500Api()
 api = SP500Api(db_info="aprawa", db_ini_path="data/mysql_config.ini")
 
 # Usage is very easy. You specify what you want (which columns, what kind of resampling)
-# and then you specify in which format you want it (CS, JSON or as a plot)
+# and then you specify in which format you want it (CSV, JSON or as a plot)
 
 # Get CSV string of quarterly data for all columns:
 CSV = api.get_quarterly().as_csv()
