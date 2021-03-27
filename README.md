@@ -3,7 +3,8 @@
 
 There is a full example in ```example.py```, but here is a quick look:
 
-```{python3}
+```python
+from api import SP500Api
 api = SP500Api()
 CSV = api.get_quarterly().as_csv()
 JSON = api.get_custom(timeframe="3Y", columns=["date", "sp500", "dividend"]).as_json()
