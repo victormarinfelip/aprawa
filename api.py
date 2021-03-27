@@ -7,6 +7,7 @@ from pandas.api.types import is_datetime64_any_dtype as is_datetime
 pd.options.plotting.backend = "plotly"
 
 
+# A decorator to check that info is being passed properly to Results
 def check_data(fn):
     def wrapped(self=None):
         if len(self._header) == 0 or len(self._values) == 0:
@@ -57,7 +58,7 @@ class Results(object):
         return data.to_csv(index=True, line_terminator='\n')
 
     @check_data
-    def as_json(self):
+    def as_json(self) -> str:
         """
         Returns a string in JSON format with the data. Headers will be keys, and values will be values for these keys.
 
@@ -73,7 +74,7 @@ class Results(object):
             to_json.append([])
         return json.dumps(to_json[:-1])
 
-    def _convert_data(self, timeframe):
+    def _convert_data(self, timeframe) -> None:
         """
         Resamples the dataset as per the timeframe argument and computes percentual
         returns.
@@ -100,7 +101,7 @@ class Results(object):
                 return data, column
         raise ValueError("No datetime-like column found in:\n{}".format(data))
 
-    def plot(self, show=False):
+    def plot(self, show: str = False):
         """
         Plots the dataset using plotly.
 
