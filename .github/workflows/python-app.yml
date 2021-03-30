@@ -33,7 +33,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest data/tests.py
+        pip install pytest
+        pip install pytest-cov
+        pytest tests.py
 
 
 
