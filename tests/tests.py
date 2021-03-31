@@ -96,7 +96,7 @@ class ResultsTest(unittest.TestCase):
 class ApiTest(unittest.TestCase):
 
     def setUp(self):
-        self.api = SP500Api("aprawa", "../data/mysql_config.ini")
+        self.api = SP500Api("aprawa", "data/mysql_config.ini")
 
     def testReturnsResultObject(self):
         res1 = self.api.get_yearly()
