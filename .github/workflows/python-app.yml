@@ -35,7 +35,7 @@ jobs:
       run: |
         pip install pytest
         pip install pytest-cov
-        pytest /home/runner/work/aprawa/aprawa/data/tests.py
+        pytest tests/tests.py
 
 
 
